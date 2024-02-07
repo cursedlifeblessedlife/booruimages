@@ -31,7 +31,7 @@
 3. **Run the Program**:
 
     ```bash
-    node index.js
+    python DanbooruImages.py
     ```
 
 ## Requirements -
