@@ -34,7 +34,6 @@ for items in Random_Posts_Data['post']:
 pygame.init()
 
 #Requests Random Gelbooru Image URL
-print(Image_URL)
 Random_Index = random.randint(0, 99)
 print(f'https://gelbooru.com/index.php?page=post&s=view&id={Post_ID[Random_Index]} has an original width of {Image_WIDTH[Random_Index]} and height of {Image_HEIGHT[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).')
 
