@@ -3,12 +3,12 @@
 ## Features -
 
 - Displays Random Images from Danbooru-based sites.
-- Allows for Competent Image Resizing
+- Allows for Competent Image Resizing.
 
 ## Limitations -
 
-- Allows GIFs, but only a single frame is displayed.
-- Doesn't Display Videos.
+- Allows GIFs, but only the first frame is displayed.
+- Doesn't Display Videos or Audio.
   
 ## Installation and Setup -
 
