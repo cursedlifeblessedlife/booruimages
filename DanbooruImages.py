@@ -39,17 +39,17 @@ list_limit = 0
 for i in image_urls:
     list_limit += 1
 
-Random_Index = random.randint(0, list_limit-1)
-print(f'https://danbooru.donmai.us/posts/{post_ids[Random_Index]} has an original width of {image_widths[Random_Index]} and height of {image_heights[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).')
+random_index = random.randint(0, list_limit-1)
+print(f'https://danbooru.donmai.us/posts/{post_ids[random_index]} has an original width of {image_widths[random_index]} and height of {image_heights[random_index]}. Default Scaled Dimensions are in 720p (1280x720).')
 
 Req = Request(
-    url=image_urls[Random_Index],
+    url=image_urls[random_index],
     headers={'User-Agent': 'Chrome/121.0.0.0'}
 ) 
 
 #Image Manipulation
-Image_STR = urlopen(Req).read()
-Image_FILE = io.BytesIO(Image_STR)
+image_STR = urlopen(Req).read()
+image_FILE = io.BytesIO(image_STR)
 
 #Screen Manipulation
 white = (255, 255, 255)
@@ -60,32 +60,32 @@ screen.fill(white)
 window = screen.get_rect()
 
 #Default Image Scaling
+image_width = image_widths[random_index]
+image_height = image_heights[random_index]
 screen_width = screen_resolution[0]
 screen_height = screen_resolution[1]
-image_width = Image_WIDTH[Random_Index]
-image_height = Image_HEIGHT[Random_Index]
-Image_SCALE = ()
+image_SCALE = ()
 
 if image_width > screen_width:
-    Image_SCALE_WIDTH = (screen_width,)
+    image_SCALE_WIDTH = (screen_width,)
 else:
-    Image_SCALE_WIDTH = (image_width,)
-Image_SCALE += Image_SCALE_WIDTH
+    image_SCALE_WIDTH = (image_width,)
+image_SCALE += image_SCALE_WIDTH
 
 if image_height > screen_height:
-    Image_SCALE_HEIGHT = (screen_height,)
+    image_SCALE_HEIGHT = (screen_height,)
 else:
-    Image_SCALE_HEIGHT = (image_height,)
-Image_SCALE += Image_SCALE_HEIGHT
+    image_SCALE_HEIGHT = (image_height,)
+image_SCALE += image_SCALE_HEIGHT
 
 #Displays Image
-Image_LOAD = pygame.transform.scale(pygame.image.load(Image_FILE), Image_SCALE)
-screen.blit(Image_LOAD, Image_LOAD.get_rect(center=window.center))
+image_LOAD = pygame.transform.scale(pygame.image.load(image_FILE), image_SCALE)
+screen.blit(image_LOAD, image_LOAD.get_rect(center=window.center))
 pygame.display.flip()
 
 #Screen Caption & Icon Manipulation
 pygame.display.set_caption('Danbooru')
-pygame.display.set_icon(Image_LOAD)
+pygame.display.set_icon(image_LOAD)
 
 #Program Run Loop
 running = True
@@ -99,28 +99,28 @@ while running:
             screen.fill(white)
             window = screen.get_rect()
 
-            Image_SCALE_TEMPORARY = ()
+            image_SCALE_TEMPORARY = ()
 
             if image_width > event.w:
-                Image_SCALE_WIDTH = (event.w,)
+                image_SCALE_WIDTH = (event.w,)
             else:
-                Image_SCALE_WIDTH = (image_width,)
-            Image_SCALE_TEMPORARY += Image_SCALE_WIDTH
+                image_SCALE_WIDTH = (image_width,)
+            image_SCALE_TEMPORARY += image_SCALE_WIDTH
 
             if image_height > event.h:
-                Image_SCALE_HEIGHT = (event.h,)
+                image_SCALE_HEIGHT = (event.h,)
             else:
-                Image_SCALE_HEIGHT = (image_height,)
-            Image_SCALE_TEMPORARY += Image_SCALE_HEIGHT
+                image_SCALE_HEIGHT = (image_height,)
+            image_SCALE_TEMPORARY += image_SCALE_HEIGHT
             
-            Image_LOAD = pygame.transform.scale(Image_LOAD, Image_SCALE_TEMPORARY)
-            screen.blit(Image_LOAD, Image_LOAD.get_rect(center=window.center))
+            image_LOAD = pygame.transform.scale(image_LOAD, image_SCALE_TEMPORARY)
+            screen.blit(image_LOAD, image_LOAD.get_rect(center=window.center))
             pygame.display.flip()
             
         if event.type == pygame.VIDEOEXPOSE:  # Handles Window Minimising/Maximising
             screen.fill(white)
             window = screen.get_rect()
-            screen.blit(Image_LOAD, Image_LOAD.get_rect(center=window.center))
+            screen.blit(image_LOAD, image_LOAD.get_rect(center=window.center))
             pygame.display.flip()
 
 #Program Exit
