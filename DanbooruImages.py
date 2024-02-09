@@ -16,34 +16,34 @@ client = Danbooru(
 )
 
 #Fetches Random Danbooru Image URL
-Random_Posts = client.post_list(limit=100, random=True)
+random_posts = client.post_list(limit=100, random=True)
 
-Post_ID = []
-Image_WIDTH = []
-Image_HEIGHT = []
-Image_URL = []
+post_ids = []
+image_widths = []
+image_heights = []
+image_urls= []
 
-for items in Random_Posts:
+for items in random_posts:
     for item in items:
         if re.search('^file_url$', item):
-            Post_ID.append(items['id'])
-            Image_WIDTH.append(items['image_width'])
-            Image_HEIGHT.append(items['image_height'])
-            Image_URL.append(items['file_url'])
+            post_ids.append(items['id'])
+            image_widths.append(items['image_width'])
+            image_heights.append(items['image_height'])
+            image_urls.append(items['file_url'])
 
 #Initializes Pygame
 pygame.init()
 
 #Requests Random Danbooru Image URL
 list_limit = 0 
-for i in Image_URL:
+for i in image_urls:
     list_limit += 1
 
 Random_Index = random.randint(0, list_limit-1)
-print(f'https://danbooru.donmai.us/posts/{Post_ID[Random_Index]} has an original width of {Image_WIDTH[Random_Index]} and height of {Image_HEIGHT[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).')
+print(f'https://danbooru.donmai.us/posts/{post_ids[Random_Index]} has an original width of {image_widths[Random_Index]} and height of {image_heights[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).')
 
 Req = Request(
-    url=Image_URL[Random_Index],
+    url=image_urls[Random_Index],
     headers={'User-Agent': 'Chrome/121.0.0.0'}
 ) 
 
