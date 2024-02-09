@@ -120,7 +120,7 @@ while running:
 
 #Program Exit
 def exit():
-    print("Exiting...")
+    print('Exiting...')
     pygame.quit()
     raise SystemExit()
 exit()

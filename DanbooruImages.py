@@ -40,7 +40,7 @@ for i in Image_URL:
     list_limit += 1
 
 Random_Index = random.randint(0, list_limit-1)
-print(f"https://danbooru.donmai.us/posts/{Post_ID[Random_Index]} has an original width of {Image_WIDTH[Random_Index]} and height of {Image_HEIGHT[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).")
+print(f'https://danbooru.donmai.us/posts/{Post_ID[Random_Index]} has an original width of {Image_WIDTH[Random_Index]} and height of {Image_HEIGHT[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).')
 
 Req = Request(
     url=Image_URL[Random_Index],
@@ -84,7 +84,7 @@ screen.blit(Image_LOAD, Image_LOAD.get_rect(center=window.center))
 pygame.display.flip()
 
 #Screen Caption & Icon Manipulation
-pygame.display.set_caption("Danbooru")
+pygame.display.set_caption('Danbooru')
 pygame.display.set_icon(Image_LOAD)
 
 #Program Run Loop
@@ -125,7 +125,7 @@ while running:
 
 #Program Exit
 def exit():
-    print("Exiting...")
+    print('Exiting...')
     pygame.quit()
     raise SystemExit()
 exit()
