@@ -14,7 +14,7 @@ client = Danbooru(
     site_url='https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1'
 )
 
-#Fetches Random Gelbooru Image URL
+#Fetches Random Gelbooru Posts in JSON
 Random_Posts = client.post_list(limit=100, random=True)
 Random_Posts_Data = json.loads(json.dumps(Random_Posts))
 
@@ -33,7 +33,7 @@ for items in Random_Posts_Data['post']:
 #Initializes Pygame
 pygame.init()
 
-#Requests Random Gelbooru Image URL
+#Requests Random Gelbooru Image from URLs
 Random_Index = random.randint(0, 99)
 print(f'https://gelbooru.com/index.php?page=post&s=view&id={Post_ID[Random_Index]} has an original width of {Image_WIDTH[Random_Index]} and height of {Image_HEIGHT[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).')
 
