@@ -15,7 +15,7 @@ client = Danbooru(
     'danbooru'
 )
 
-#Fetches Random Danbooru Image URL
+#Fetches Random Danbooru Posts in JSON
 random_posts = client.post_list(limit=100, random=True)
 
 post_ids = []
@@ -34,7 +34,7 @@ for items in random_posts:
 #Initializes Pygame
 pygame.init()
 
-#Requests Random Danbooru Image URL
+#Requests Random Danbooru Image from URLs
 list_limit = 0 
 for i in image_urls:
     list_limit += 1
