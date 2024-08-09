@@ -33,6 +33,12 @@ for items in Random_Posts_Data['post']:
 #Initializes Pygame
 pygame.init()
 
+#Program Exit
+def exit():
+    print('Exiting...')
+    pygame.quit()
+    raise SystemExit()
+
 #Requests Random Gelbooru Image from URLs
 Random_Index = random.randint(0, 99)
 print(f'https://gelbooru.com/index.php?page=post&s=view&id={Post_ID[Random_Index]} has an original width of {Image_WIDTH[Random_Index]} and height of {Image_HEIGHT[Random_Index]}. Default Scaled Dimensions are in 720p (1280x720).')
@@ -117,10 +123,6 @@ while running:
             window = screen.get_rect()
             screen.blit(Image_LOAD, Image_LOAD.get_rect(center=window.center))
             pygame.display.flip()
-
-#Program Exit
-def exit():
-    print('Exiting...')
-    pygame.quit()
-    raise SystemExit()
-exit()
+            
+if __name__ == '__main__':
+    exit()
