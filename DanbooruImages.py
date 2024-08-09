@@ -34,6 +34,12 @@ for items in random_posts:
 #Initializes Pygame
 pygame.init()
 
+#Program Exit
+def exit():
+    print('Exiting...')
+    pygame.quit()
+    raise SystemExit()
+
 #Requests Random Danbooru Image from URLs
 list_limit = 0 
 for i in image_urls:
@@ -122,10 +128,6 @@ while running:
             window = screen.get_rect()
             screen.blit(image_LOAD, image_LOAD.get_rect(center=window.center))
             pygame.display.flip()
-
-#Program Exit
-def exit():
-    print('Exiting...')
-    pygame.quit()
-    raise SystemExit()
-exit()
+            
+if __name__ == '__main__':
+    exit()
