@@ -9,6 +9,11 @@ import io
 import random
 import re
 
+#Program Exit
+def exit():
+    print('Exiting...')
+    pygame.quit()
+    raise SystemExit()
 
 #Danbooru Client
 client = Danbooru(
@@ -33,12 +38,6 @@ for items in random_posts:
 
 #Initializes Pygame
 pygame.init()
-
-#Program Exit
-def exit():
-    print('Exiting...')
-    pygame.quit()
-    raise SystemExit()
 
 #Requests Random Danbooru Image from URLs
 list_limit = 0 
