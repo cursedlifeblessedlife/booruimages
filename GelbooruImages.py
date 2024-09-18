@@ -9,6 +9,12 @@ import io
 import json
 import random
 
+#Program Exit
+def exit():
+    print('Exiting...')
+    pygame.quit()
+    raise SystemExit()
+
 #Gelbooru Client
 client = Danbooru(
     site_url='https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1'
@@ -29,15 +35,8 @@ for items in Random_Posts_Data['post']:
     Image_HEIGHT.append(items['height'])
     Image_URL.append(items['file_url'])
 
-
 #Initializes Pygame
 pygame.init()
-
-#Program Exit
-def exit():
-    print('Exiting...')
-    pygame.quit()
-    raise SystemExit()
 
 #Requests Random Gelbooru Image from URLs
 Random_Index = random.randint(0, 99)
