@@ -128,4 +128,4 @@ while running:
             screen.blit(image_LOAD, image_LOAD.get_rect(center=window.center))
             pygame.display.flip()
             
-    exit()
+exit()
